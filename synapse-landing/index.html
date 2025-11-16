@@ -27,11 +27,29 @@
           <div class="feature">Open-core, deploy anywhere</div>
         </div>
 
-        <form class="cta-form" aria-label="Stay informed">
+        <!-- Netlify-enabled form -->
+        <form
+          class="cta-form"
+          aria-label="Stay informed"
+          name="waitlist"
+          method="POST"
+          data-netlify="true"
+          onsubmit="showSuccessMessage(event)"
+        >
+          <input type="hidden" name="form-name" value="waitlist">
           <label for="email" class="sr-only">Work email</label>
           <input type="email" id="email" name="email" placeholder="Your work email" required>
           <button type="submit">Stay in the loop</button>
         </form>
+
+        <!-- Animated success pill -->
+        <div id="success-pill" class="success-pill">
+          <span class="success-icon">✓</span>
+          <span class="success-text">
+            Thanks for signing up! Together we’re enabling the next generation of AI governance.
+          </span>
+        </div>
+
         <p class="disclaimer">We’ll only reach out with important updates and early access opportunities.</p>
       </div>
     </main>
@@ -41,5 +59,28 @@
       <p>MADE IN HAGENBERG IM MÜHLKREIS / LINZ, AUSTRIA.</p>
     </footer>
   </div>
+
+  <script>
+    function showSuccessMessage(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const pill = document.getElementById("success-pill");
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(() => {
+        form.reset();
+        pill.classList.add("visible");
+      })
+      .catch(() => {
+        // Im Fehlerfall trotzdem eine Bestätigung anzeigen (kannst du anpassen)
+        pill.classList.add("visible");
+      });
+    }
+  </script>
 </body>
 </html>
