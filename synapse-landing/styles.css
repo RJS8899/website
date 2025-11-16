@@ -25,7 +25,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
 }
 
 .page {
@@ -36,6 +36,10 @@ body {
   padding: clamp(1.5rem, 4vw, 3.5rem);
   backdrop-filter: blur(12px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  min-height: calc(100vh - 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .site-header,
@@ -61,6 +65,8 @@ body {
 
 .hero {
   display: flex;
+  flex: 1;
+  align-items: center;
 }
 
 .hero-content {
@@ -159,17 +165,18 @@ h1 {
 .disclaimer {
   color: var(--text-muted);
   font-size: 0.9rem;
+  margin-bottom: 0;
 }
 
 .site-footer {
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .site-header,
   .site-footer {
     flex-direction: column;
@@ -189,6 +196,95 @@ h1 {
 
   .features {
     flex-direction: column;
+  }
+
+  .hero {
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero {
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+  }
+
+  .subline {
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+  }
+
+  .description,
+  .features {
+    margin-bottom: 1.5rem;
+  }
+
+  .feature {
+    padding: 0.65rem 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding: 1.25rem;
+  }
+
+  .page {
+    padding: 2.5rem 3rem;
+    min-height: calc(100vh - 2.5rem);
+  }
+
+  .site-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero {
+    align-items: center;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 4.2vw, 4.4rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .subline {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .features {
+    margin-bottom: 1.2rem;
+    gap: 0.6rem;
+  }
+
+  .feature {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .cta-form {
+    margin-bottom: 0.6rem;
+  }
+
+  .cta-form input,
+  .cta-form button {
+    padding: 0.85rem 1.2rem;
+  }
+
+  .disclaimer {
+    font-size: 0.85rem;
+  }
+
+  .site-footer {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
   }
 }
 
