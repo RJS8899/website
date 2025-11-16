@@ -73,7 +73,7 @@ body {
   width: 100%;
 }
 
-/* ---------- FIXED 2-LINE TITLE ---------- */
+/* Immer 2 Zeilen Titel */
 .hero-title {
   white-space: normal;
   word-break: keep-all;
@@ -138,6 +138,12 @@ h1 {
   font-size: 1rem;
 }
 
+.cta-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(140, 123, 255, 0.3);
+}
+
 .cta-form button {
   padding: 0.95rem 1.5rem;
   border-radius: 999px;
@@ -149,55 +155,167 @@ h1 {
   cursor: pointer;
 }
 
-/* SUCCESS PILL */
-.success-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: 0.9rem;
-  padding: 0.55rem 0.95rem;
-  border-radius: 999px;
-  background: radial-gradient(circle at top left, rgba(140, 122, 255, 0.35), rgba(40, 40, 80, 0.9));
-  border: 1px solid rgba(188, 172, 255, 0.4);
+.cta-form button:hover,
+.cta-form button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(140, 123, 255, 0.4);
+}
+
+.cta-form button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 2px;
+}
+
+.disclaimer {
+  color: var(--text-muted);
   font-size: 0.9rem;
-  color: #e2deff;
-  opacity: 0;
-  transform: translateY(6px) scale(0.98);
-  pointer-events: none;
-  transition: opacity 200ms ease-out, transform 200ms ease-out;
+  margin-bottom: 0;
 }
 
-.success-pill.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
-}
-
-.success-icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  border-radius: 999px;
-  background: rgba(168, 255, 210, 0.2);
-  border: 1px solid rgba(168, 255, 210, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Footer */
 .site-footer {
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
   flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-/* ---------- MOBILE FIXES YOU WANTED ---------- */
+/* Success pill – nimmt standardmäßig KEINEN Platz ein */
+.success-pill {
+  display: none;              /* wichtig: kein Platz, wenn unsichtbar */
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at top left, rgba(140, 122, 255, 0.35), rgba(40, 40, 80, 0.9));
+  border: 1px solid rgba(188, 172, 255, 0.4);
+  font-size: 0.85rem;
+  color: #e2deff;
+}
+
+.success-pill.visible {
+  display: inline-flex;       /* nur bei Erfolg sichtbar */
+}
+
+.success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: rgba(168, 255, 210, 0.2);
+  border: 1px solid rgba(168, 255, 210, 0.6);
+  font-size: 0.75rem;
+}
+
+.success-text {
+  line-height: 1.2;
+}
+
+/* Mobile Tweaks */
 @media (max-width: 767px) {
-  .cta-form { margin-bottom: 0.4rem !important; }
-  .disclaimer { margin-bottom: 0.6rem !important; }
-  .site-footer { margin-top: 0.7rem !important; padding-top: 0.5rem !important; }
+  .site-header,
+  .site-footer {
+    flex-direction: column;
+    gap: 0.3rem;
+    text-align: center;
+  }
+
+  .cta-form {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .cta-form button,
+  .cta-form input {
+    width: 100%;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+
+  .hero {
+    align-items: flex-start;
+  }
+
+  .disclaimer {
+    margin-bottom: 0.6rem !important;
+  }
+
+  .site-footer {
+    margin-top: 0.7rem !important;
+    padding-top: 0.5rem !important;
+  }
 }
 
+@media (min-width: 1024px) {
+  body {
+    padding: 1.25rem;
+  }
+
+  .page {
+    padding: 2.5rem 3rem;
+    min-height: calc(100vh - 2.5rem);
+  }
+
+  .site-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero {
+    align-items: center;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 4.2vw, 4.4rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .subline {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .features {
+    margin-bottom: 1.2rem;
+    gap: 0.6rem;
+  }
+
+  .feature {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .cta-form {
+    margin-bottom: 0.6rem;
+  }
+
+  .cta-form input,
+  .cta-form button {
+    padding: 0.85rem 1.2rem;
+  }
+
+  .disclaimer {
+    font-size: 0.85rem;
+  }
+
+  .site-footer {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+  }
+}
+
+/* SR-only helper */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -206,6 +324,6 @@ h1 {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
   border: 0;
 }
-
