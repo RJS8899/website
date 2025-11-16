@@ -76,13 +76,17 @@ body {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.8rem, 6.8vw, 5rem);
   line-height: 1.1;
   margin: 0 0 1rem 0;
 }
 
+h1 span {
+  display: block;
+}
+
 .subline {
-  font-size: 1.25rem;
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
   color: var(--text-muted);
   margin-bottom: 1rem;
 }
@@ -103,8 +107,8 @@ h1 {
 .feature {
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
+  padding: 0.7rem 1.35rem;
+  font-size: 1.05rem;
   background: rgba(255, 255, 255, 0.02);
 }
 
