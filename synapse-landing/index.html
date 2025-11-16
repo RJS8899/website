@@ -18,7 +18,7 @@
       <div class="hero-content">
         <p class="eyebrow">AI Governance Runtime</p>
 
-        <!-- FIXED 2-LINE TITLE -->
+        <!-- Fix: Immer exakt 2 Zeilen -->
         <h1 class="hero-title">
           The governance layer<br>
           for AI.
@@ -33,7 +33,7 @@
           <div class="feature">Open-core, deploy anywhere</div>
         </div>
 
-        <!-- NETLIFY FORM -->
+        <!-- Netlify Form -->
         <form class="cta-form" name="synapse-waitlist" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="synapse-waitlist">
           <label for="email" class="sr-only">Work email</label>
@@ -41,10 +41,10 @@
           <button type="submit">Stay in the loop</button>
         </form>
 
-        <!-- SUCCESS PILL -->
+        <!-- Bestätigung: klein, einzeilig, nur bei Erfolg sichtbar -->
         <div id="success-pill" class="success-pill">
           <div class="success-icon">✓</div>
-          <div class="success-text">Thanks for signing up!<br>Together we’re enabling the next generation of AI governance.</div>
+          <div class="success-text">Thanks, you’re on the list. We’ll keep you in the loop.</div>
         </div>
 
         <p class="disclaimer">We’ll only reach out with important updates and early access opportunities.</p>
@@ -58,7 +58,7 @@
   </div>
 
   <script>
-    // Show success-pill on successful Netlify submission
+    // Zeige kleinen Bestätigungs-Pill, ohne Layout zu zerstören
     const form = document.querySelector(".cta-form");
     const pill = document.getElementById("success-pill");
 
@@ -73,7 +73,7 @@
       .then(() => {
         pill.classList.add("visible");
         form.reset();
-        setTimeout(() => pill.classList.remove("visible"), 5000);
+        setTimeout(() => pill.classList.remove("visible"), 4000);
       })
       .catch(() => alert("Something went wrong. Please try again."));
     });
